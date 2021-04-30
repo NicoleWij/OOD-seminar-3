@@ -20,4 +20,8 @@ public class Register {
     public double getAmount(){
         return amount;
     }
+
+    public void updateAmount(double amount){
+        this.amount = amount;
+    }
 }

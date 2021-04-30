@@ -1,5 +1,6 @@
 package seminar3.controller;
 
+import seminar3.DTO.SaleInfoDTO;
 import seminar3.integration.*;
 import seminar3.model.Sale;
 import seminar3.model.Register;
@@ -35,5 +36,16 @@ public class Controller {
      */
     public void startSale(){
         sale = new Sale();
+    }
+
+    public SaleInfoDTO enterItem(String identifier){
+        
+
+        return null;
+    }
+
+    public double pay(double amount, String currency){
+
+        return 1;
     }
 }
