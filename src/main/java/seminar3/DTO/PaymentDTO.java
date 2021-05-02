@@ -1,31 +1,37 @@
 package seminar3.DTO;
-
+/**
+ * This is a data transfer object class used to transfer the payment made by the customer
+ */
 public class PaymentDTO {
-    private int amount;
+    private double amount;
     private String currency;
 
-
-    public PaymentDTO(int amount, String currency) {
+    /**
+     * This function creates a new instance of payment data transfer object
+     * @param amount the amount the customer pays
+     * @param currency the currency in which the customer pays
+     */
+    public PaymentDTO(double amount, String currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
     
     /** 
-     * @return int
+     * Gets the amount paid by the customer
+     * @return int the amount paid
      */
-    public int getAmount() {
+    public double getAmount() {
         return this.amount;
     }
 
 
     
     /** 
-     * @return String
+     * Gets the currency the customer used
+     * @return String the currency
      */
     public String getCurrency() {
         return this.currency;
-    }
-
-    
+    }   
 }

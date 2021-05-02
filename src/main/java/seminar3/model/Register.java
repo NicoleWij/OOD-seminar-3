@@ -14,14 +14,18 @@ public class Register {
     }
 
     /**
-     * 
-     * @return the amount of money in the register (double)
+     * Gets and returns the amount in the register
+     * @return double the amount of money in the register (double)
      */
     public double getAmount(){
         return amount;
     }
 
+    /**
+     * Updates the amount in the register
+     * @param amount the relative change of the amount.
+     */
     public void updateAmount(double amount){
-        this.amount = amount;
+        this.amount += amount;
     }
 }

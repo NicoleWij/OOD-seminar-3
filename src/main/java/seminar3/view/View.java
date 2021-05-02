@@ -1,6 +1,5 @@
 package seminar3.view;
 
-import seminar3.DTO.SaleInfoDTO;
 import seminar3.controller.Controller;
 
 /**
@@ -9,11 +8,9 @@ import seminar3.controller.Controller;
  */
 public class View {
     private Controller contr;
-    private String identifier;
 
     /**
      * Creates a new instance, that uses the specified controller for all calls to other layers
-     
      * @param contr The controller to use for all calls to other layers.
      */
     public View(Controller contr) {
@@ -26,6 +23,7 @@ public class View {
     public void runFakeExecution(){
         contr.startSale();
         System.out.println("A new sale has been started.");
-        SaleInfoDTO saleInformation = contr.enterItem(identifier);
+        contr.enterItem("Identifier");
+        contr.pay(100, "SEK");
     }
 }

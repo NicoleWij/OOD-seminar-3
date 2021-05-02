@@ -1,8 +1,12 @@
 package seminar3.controller;
 
+import seminar3.DTO.ItemDTO;
+import seminar3.DTO.PaymentDTO;
+import seminar3.DTO.SaleDTO;
 import seminar3.DTO.SaleInfoDTO;
 import seminar3.integration.*;
 import seminar3.model.Sale;
+import seminar3.model.Receipt;
 import seminar3.model.Register;
 
 /**
@@ -31,6 +35,7 @@ public class Controller {
         System.out.println("Controller was started successfully.");
     }
     
+
     /**
      * Starts a new sale. This method must be called before doing anything else during a sale.
      */
@@ -38,14 +43,39 @@ public class Controller {
         sale = new Sale();
     }
 
-    public SaleInfoDTO enterItem(String identifier){
-        
 
-        return null;
+    /**
+     * Adds another item to the sale
+     * @param identifier The items identifier. Invalid identifiers are not handled.
+     * @return saleInfoDTO information that will be shown on the screen in the view
+     */
+    public SaleInfoDTO enterItem(String identifier){
+        if(sale.checkForDuplicate(identifier)){
+            return sale.duplicateIdentifier(identifier);
+        }
+
+        ItemDTO item = eis.findItem(identifier);
+        return sale.addItem(item);
     }
 
-    public double pay(double amount, String currency){
 
-        return 1;
+    /**
+     * Handles a payment and also completes the sale and updates external systems.
+     * @param amount the amount the customer has paid
+     * @param currency the currency the customer paid in
+     * @return double the amount of change the cashier should give
+     */
+    public double pay(double amount, String currency){
+        PaymentDTO payment = new PaymentDTO(amount, currency);
+        SaleDTO sale = this.sale.makeSaleDTO();
+        Receipt receipt = this.sale.completeSale(sale, payment);
+
+        register.updateAmount(amount);
+
+        eis.updateInventory(sale);
+        eas.registerPayment(payment, sale);
+        printer.printReceipt(receipt);
+
+        return (payment.getAmount() - sale.getTotalPrice());
     }
 }
