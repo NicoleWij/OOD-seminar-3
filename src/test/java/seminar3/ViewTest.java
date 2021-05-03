@@ -24,7 +24,10 @@ public class ViewTest {
 
     @Before
     public void setUp(){
-        Controller contr = new Controller(null, null, null);
+        EISHandler eis = new EISHandler();
+        EASHandler eas = new EASHandler();
+        Printer printer = new Printer();
+        Controller contr = new Controller(eis, eas, printer);
         instanceToTest = new View(contr);
 
         printoutBuffer = new ByteArrayOutputStream();

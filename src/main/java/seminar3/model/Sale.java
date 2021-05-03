@@ -1,9 +1,6 @@
 package seminar3.model;
 
-import seminar3.DTO.ItemDTO;
-import seminar3.DTO.PaymentDTO;
-import seminar3.DTO.SaleDTO;
-import seminar3.DTO.SaleInfoDTO;
+import seminar3.DTO.*;
 
 import java.util.ArrayList;
 import java.time.LocalTime;

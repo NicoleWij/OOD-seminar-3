@@ -39,11 +39,44 @@ public class ControllerTest {
         instance = null;
     }
 
+
     @Test
     public void testUIHasStarted()
     {
         String printout = printoutBuffer.toString();
         String expectedOutput = "success";
         assertTrue("Controller did not start correctly.", printout.contains(expectedOutput));
+    }
+
+
+    @Test
+    public void testStartSale(){
+        instance.startSale();
+
+        String printout = printoutBuffer.toString();
+        String expectedOutput = "success";
+        assertTrue("StartSale did not start correctly.", printout.contains(expectedOutput));
+    }
+
+
+    @Test
+    public void testEnterItem(){
+        instance.startSale();
+        instance.enterItem("Identifier");
+
+        String printout = printoutBuffer.toString();
+        String expectedOutput = "success";
+        assertTrue("EnterItem did not start correctly.", printout.contains(expectedOutput));
+    }
+
+
+    @Test
+    public void pay(){
+        instance.startSale();
+        instance.pay(100, "SEK");
+
+        String printout = printoutBuffer.toString();
+        String expectedOutput = "success";
+        assertTrue("Pay did not start correctly.", printout.contains(expectedOutput));
     }
 }

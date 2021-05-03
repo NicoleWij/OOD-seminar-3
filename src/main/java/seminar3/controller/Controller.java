@@ -41,6 +41,8 @@ public class Controller {
      */
     public void startSale(){
         sale = new Sale();
+
+        System.out.println("Sale has started successfully.");
     }
 
 
@@ -55,6 +57,9 @@ public class Controller {
         }
 
         ItemDTO item = eis.findItem(identifier);
+
+        System.out.println("EnterItem has started successfully.");
+
         return sale.addItem(item);
     }
 

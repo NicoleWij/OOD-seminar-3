@@ -3,8 +3,7 @@ package seminar3.model;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import seminar3.DTO.PaymentDTO;
-import seminar3.DTO.SaleDTO;
+import seminar3.DTO.*;
 
 /**
  * Represents one receipt, which proves the payment of one sale.

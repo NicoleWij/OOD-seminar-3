@@ -1,6 +1,6 @@
 package seminar3.model;
 
-import seminar3.DTO.ItemDTO;
+import seminar3.DTO.*;
 
 public class Item {
     private int quantity;
