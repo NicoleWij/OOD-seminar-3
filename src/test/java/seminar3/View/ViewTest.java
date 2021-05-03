@@ -1,4 +1,4 @@
-package seminar3;
+package seminar3.View;
 
 import org.junit.Test;
 
@@ -14,9 +14,7 @@ import seminar3.integration.*;
 import seminar3.controller.Controller;
 import seminar3.view.View;
 
-/**
- * Unit test for simple App.
- */
+
 public class ViewTest {
     private View instanceToTest;
     private ByteArrayOutputStream printoutBuffer;
@@ -34,7 +32,8 @@ public class ViewTest {
         PrintStream inMemSysOut = new PrintStream(printoutBuffer);
         originalSysOut = System.out;
         System.setOut(inMemSysOut);
-;    }
+    }
+
 
     @After
     public void tearDown(){
@@ -42,11 +41,9 @@ public class ViewTest {
 
         printoutBuffer = null;
         System.setOut(originalSysOut);
-;    }
+    }
 
-    /**
-     * 
-     */
+
     @Test
     public void testRunFakeExecution()
     {

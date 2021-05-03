@@ -20,6 +20,8 @@ public class Item {
         this.price = item.getPrice();
         this.description = item.getDescription();
         this.quantity = 1;
+
+        System.out.println("Item started successfully.");
     }
 
     

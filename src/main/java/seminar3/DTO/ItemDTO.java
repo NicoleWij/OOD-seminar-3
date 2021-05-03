@@ -19,7 +19,7 @@ public class ItemDTO{
      * @param price the price of the item
      * @param name the name of the item
      */
-    public ItemDTO(String description, double VAT, double price, String name){
+    public ItemDTO(String description, double VAT, double price, String name, String identifier){
         this.description = description;
         this.VAT = VAT;
         this.price = price;

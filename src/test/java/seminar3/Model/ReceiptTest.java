@@ -1,4 +1,4 @@
-package seminar3;
+package seminar3.Model;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -8,25 +8,25 @@ import org.junit.Before;
 import org.junit.Test;
 
 import seminar3.DTO.*;
-import seminar3.integration.*;
 import seminar3.model.Receipt;
 
 import static org.junit.Assert.assertTrue;
 
-public class PrinterTest {
-    private Printer instance;
+public class ReceiptTest {
     private ByteArrayOutputStream printoutBuffer;
     private PrintStream originalSysOut;
 
     @Before
     public void setUp(){
-
+    
         printoutBuffer = new ByteArrayOutputStream();
         PrintStream inMemSysOut = new PrintStream(printoutBuffer);
         originalSysOut = System.out;
         System.setOut(inMemSysOut);
-
-        instance = new Printer();
+        
+        SaleDTO sale = new SaleDTO(null, null, 0, 0);
+        PaymentDTO payment = new PaymentDTO(0, null);
+        new Receipt(sale, payment);
     }
 
     @After
@@ -37,15 +37,10 @@ public class PrinterTest {
 
 
     @Test
-    public void testPrintReceipt()
+    public void testReceipt()
     {
-        SaleDTO sale = new SaleDTO(null, null, 0, 0);
-        PaymentDTO payment = new PaymentDTO(0, null);
-        Receipt receipt = new Receipt(sale, payment);
-        instance.printReceipt(receipt);
-
         String printout = printoutBuffer.toString();
         String expectedOutput = "success";
-        assertTrue("PrintReceipt did not start correctly.", printout.contains(expectedOutput));
+        assertTrue("Item did not start correctly.", printout.contains(expectedOutput));
     }
 }

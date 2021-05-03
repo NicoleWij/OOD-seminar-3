@@ -1,49 +1,54 @@
-package seminar3;
+package seminar3.Startup;
+
+import org.junit.Test;
+
+import seminar3.startup.Main;
+
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 
-import seminar3.DTO.*;
-import seminar3.integration.*;
+import seminar3.controller.Controller;
+import seminar3.view.View;
 
-import static org.junit.Assert.assertTrue;
-
-public class EASTest {
-    private EASHandler instance;
+/**
+ * Unit test for main class
+ */
+public class MainTest
+{
+    private Main instanceToTest;
     private ByteArrayOutputStream printoutBuffer;
     private PrintStream originalSysOut;
 
     @Before
     public void setUp(){
+        instanceToTest = new Main();
 
         printoutBuffer = new ByteArrayOutputStream();
         PrintStream inMemSysOut = new PrintStream(printoutBuffer);
         originalSysOut = System.out;
         System.setOut(inMemSysOut);
-
-        instance = new EASHandler();
-    }
+;    }
 
     @After
     public void tearDown(){
+        instanceToTest = null;
+
         printoutBuffer = null;
         System.setOut(originalSysOut);
-    }
-
+;    }
 
     @Test
-    public void testRegisterPayment()
+    public void testUIHasStarted()
     {
-        PaymentDTO payment = new PaymentDTO(0, null);
-        SaleDTO sale = new SaleDTO(null, null, 0, 0);
-        instance.registerPayment(payment, sale);
-
+        String[] args = null;
+        Main.main(args);
         String printout = printoutBuffer.toString();
-        String expectedOutput = "success";
-        assertTrue("RegisterPayment did not start correctly.", printout.contains(expectedOutput));
+        String expectedOutput = "started.";
+        assertTrue("UI did not start correctly.", printout.contains(expectedOutput));
     }
 }

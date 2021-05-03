@@ -19,6 +19,7 @@ public class Sale {
      */
     public Sale(){
         timeOfSale = LocalTime.now();
+        System.out.println("Sale started successfully.");
     }
 
 
@@ -28,11 +29,11 @@ public class Sale {
 
         for(Item item : items){
             runningTotal += item.getPrice() * item.getQuantity();
-            totalVAT += item.getVAT() * item.getQuantity();
+            totalVAT += item.getVAT() * item.getPrice() * item.getQuantity();
         }
 
-        this.totalPrice = runningTotal;
         this.totalVAT = totalVAT;
+        this.totalPrice = runningTotal;
     }
     
     /** 
@@ -93,7 +94,6 @@ public class Sale {
     }
 
 
-    
     /** 
      * This function converts a sale to a saleDTO so that it can be sent to external systems
      * @return SaleDTO the same sale but DTO version

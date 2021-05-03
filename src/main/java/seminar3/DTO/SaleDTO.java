@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 import seminar3.model.Item;
+import seminar3.model.Sale;
 /**
  * A data transfer object class used to send the sale to external systems.
  */

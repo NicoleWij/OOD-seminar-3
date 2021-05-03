@@ -1,54 +1,48 @@
-package seminar3;
-
-import org.junit.Test;
-
-import seminar3.startup.Main;
-
-import static org.junit.Assert.assertTrue;
+package seminar3.Integration;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
-import seminar3.controller.Controller;
-import seminar3.view.View;
+import seminar3.integration.*;
 
-/**
- * Unit test for main class
- */
-public class MainTest
-{
-    private Main instanceToTest;
+import static org.junit.Assert.assertTrue;
+
+public class EISTest {
+    private EISHandler instance;
     private ByteArrayOutputStream printoutBuffer;
     private PrintStream originalSysOut;
 
+
     @Before
     public void setUp(){
-        instanceToTest = new Main();
-
+        
         printoutBuffer = new ByteArrayOutputStream();
         PrintStream inMemSysOut = new PrintStream(printoutBuffer);
         originalSysOut = System.out;
         System.setOut(inMemSysOut);
-;    }
+
+        instance = new EISHandler();
+    }
+
 
     @After
     public void tearDown(){
-        instanceToTest = null;
-
         printoutBuffer = null;
         System.setOut(originalSysOut);
-;    }
+    }
+
 
     @Test
-    public void testUIHasStarted()
+    public void testFindItem()
     {
-        String[] args = null;
-        Main.main(args);
+        instance.findItem("Identifier");
+
         String printout = printoutBuffer.toString();
-        String expectedOutput = "started.";
-        assertTrue("UI did not start correctly.", printout.contains(expectedOutput));
+        String expectedOutput = "success";
+        assertTrue("FindItem did not start correctly.", printout.contains(expectedOutput));
     }
 }

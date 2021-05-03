@@ -14,7 +14,7 @@ public class EISHandler {
     public ItemDTO findItem(String identifier){
         System.out.println("FindItem has started successfully");
 
-        return new ItemDTO("Fint rött äpple", 0.25, 10.0, "Svenskt äpple");
+        return new ItemDTO("Fint rött äpple", 0.25, 10.0, "Svenskt äpple", "identifer");
     }
     /**
      * This function updates the inventory based on what items were purchased
@@ -22,6 +22,5 @@ public class EISHandler {
      */
     public void updateInventory(SaleDTO sale){
         System.out.println("updateInventory has started successfully");
-        System.out.println("Inventory has been updated.");
     }
 }

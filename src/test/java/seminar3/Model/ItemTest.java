@@ -1,4 +1,4 @@
-package seminar3;
+package seminar3.Model;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -8,24 +8,26 @@ import org.junit.Before;
 import org.junit.Test;
 
 import seminar3.DTO.*;
-import seminar3.integration.*;
+import seminar3.model.Item;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ItemTest {
-    private EASHandler instance;
+    private Item instance;
     private ByteArrayOutputStream printoutBuffer;
     private PrintStream originalSysOut;
 
     @Before
     public void setUp(){
-
+    
         printoutBuffer = new ByteArrayOutputStream();
         PrintStream inMemSysOut = new PrintStream(printoutBuffer);
         originalSysOut = System.out;
         System.setOut(inMemSysOut);
-
-        instance = new EASHandler();
+        
+        ItemDTO item = new ItemDTO(null, 0, 0, null, null);
+        instance = new Item(item);
     }
 
     @After
@@ -36,14 +38,24 @@ public class ItemTest {
 
 
     @Test
-    public void testRegisterPayment()
+    public void testItem()
     {
-        PaymentDTO payment = new PaymentDTO(0, null);
-        SaleDTO sale = new SaleDTO(null, null, 0, 0);
-        instance.registerPayment(payment, sale);
-
         String printout = printoutBuffer.toString();
         String expectedOutput = "success";
-        assertTrue("RegisterPayment did not start correctly.", printout.contains(expectedOutput));
+        assertTrue("Item did not start correctly.", printout.contains(expectedOutput));
+    }
+
+
+    @Test
+    public void testIncreaseQuantity()
+    {
+        int quantityBefore = instance.getQuantity();
+        instance.increaseQuantity();
+
+        assertEquals(
+            "Increase quantity did not give the expected result", 
+            (quantityBefore + 1), 
+            instance.getQuantity()
+        );
     }
 }

@@ -1,4 +1,4 @@
-package seminar3;
+package seminar3.Controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
