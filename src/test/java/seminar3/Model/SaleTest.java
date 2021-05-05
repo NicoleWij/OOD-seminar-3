@@ -31,6 +31,7 @@ public class SaleTest {
 
     @After
     public void tearDown(){
+        instance = null;
         printoutBuffer = null;
         System.setOut(originalSysOut);
     }

@@ -13,6 +13,5 @@ public class EASHandler {
      */
     public void registerPayment(PaymentDTO payment, SaleDTO sale){
         System.out.println("Registering the payment.");
-        System.out.println("RegisterPayment has started successfully.");
     }    
 }

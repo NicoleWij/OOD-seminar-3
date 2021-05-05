@@ -15,14 +15,11 @@ public class Item {
      * @param item the item DtO to be converted
      */
     public Item(ItemDTO item){
-        this.quantity = item.getQuantity();
         this.VAT = item.getVAT();
         this.price = item.getPrice();
         this.description = item.getDescription();
         this.identifier = item.getIdentifier();
         this.quantity = 1;
-
-        System.out.println("Item started successfully.");
     }
 
     

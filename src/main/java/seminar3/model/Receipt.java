@@ -24,8 +24,6 @@ public class Receipt {
         this.totalVAT = sale.getTotalVAT();
         this.paidAmount = payment.getAmount();
         this.currency = payment.getCurrency();
-
-        System.out.println("Receipt started successfully.");
     }
 
     

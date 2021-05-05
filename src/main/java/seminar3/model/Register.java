@@ -11,7 +11,6 @@ public class Register {
      */
     public Register(){
         this.amount = 1000;
-        System.out.println("Register started successfully.");
     }
 
     /**

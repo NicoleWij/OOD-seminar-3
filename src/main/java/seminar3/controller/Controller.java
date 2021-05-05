@@ -40,7 +40,7 @@ public class Controller {
      * Starts a new sale. This method must be called before doing anything else during a sale.
      */
     public void startSale(){
-        sale = new Sale();
+        this.sale = new Sale();
 
         System.out.println("Sale has started successfully.");
     }
@@ -57,8 +57,6 @@ public class Controller {
         }
 
         ItemDTO item = eis.findItem(identifier);
-
-        System.out.println("EnterItem has started successfully.");
 
         return sale.addItem(item);
     }
@@ -81,6 +79,6 @@ public class Controller {
         eas.registerPayment(payment, sale);
         printer.printReceipt(receipt);
 
-        return (payment.getAmount() - sale.getTotalPrice());
+        return (amount - sale.getTotalPrice());
     }
 }

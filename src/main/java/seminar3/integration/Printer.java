@@ -12,7 +12,6 @@ public class Printer {
      * @param receipt
      */
     public void printReceipt(Receipt receipt){
-        System.out.println("PrintReceipt has started successfully.");
         System.out.println("Receipt has been printed.");
     }
 }

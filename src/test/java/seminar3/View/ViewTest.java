@@ -49,7 +49,7 @@ public class ViewTest {
     {
         instanceToTest.runFakeExecution();
         String printout = printoutBuffer.toString();
-        String expectedOutput = "started.";
+        String expectedOutput = "started";
         assertTrue("UI did not start correctly.", printout.contains(expectedOutput));
     }
 }

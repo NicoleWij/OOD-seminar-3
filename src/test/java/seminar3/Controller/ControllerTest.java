@@ -7,9 +7,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import seminar3.DTO.*;
 import seminar3.controller.Controller;
 import seminar3.integration.*;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ControllerTest {
@@ -61,22 +63,29 @@ public class ControllerTest {
 
     @Test
     public void testEnterItem(){
-        instance.startSale();
-        instance.enterItem("Identifier");
 
-        String printout = printoutBuffer.toString();
-        String expectedOutput = "success";
-        assertTrue("EnterItem did not start correctly.", printout.contains(expectedOutput));
+        instance.startSale();
+        ItemDTO item = new ItemDTO("Nice red apple", 0, 0, null, "1identifier");
+        SaleInfoDTO saleInfo = instance.enterItem(item.getIdentifier());
+        assertEquals("Item was not identified", 
+        item.getDescription(),
+        saleInfo.getItemDescription()
+        );
     }
 
 
     @Test
-    public void pay(){
+    public void testPay(){
+        double amountPaid = 100;
         instance.startSale();
-        instance.pay(100, "SEK");
+        SaleInfoDTO saleInfo = instance.enterItem("1identifier");
+        double price = saleInfo.getRunningTotal();
+        double change = instance.pay(amountPaid, null);
 
-        String printout = printoutBuffer.toString();
-        String expectedOutput = "success";
-        assertTrue("Pay did not start correctly.", printout.contains(expectedOutput));
+        assertEquals("Change was not calculated correctly", 
+        (amountPaid - price),
+        change,
+        0.01
+        );
     }
 }

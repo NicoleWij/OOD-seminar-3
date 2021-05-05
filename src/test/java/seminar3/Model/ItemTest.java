@@ -11,7 +11,6 @@ import seminar3.DTO.*;
 import seminar3.model.Item;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class ItemTest {
     private Item instance;
@@ -32,17 +31,9 @@ public class ItemTest {
 
     @After
     public void tearDown(){
+        instance = null;
         printoutBuffer = null;
         System.setOut(originalSysOut);
-    }
-
-
-    @Test
-    public void testItem()
-    {
-        String printout = printoutBuffer.toString();
-        String expectedOutput = "success";
-        assertTrue("Item did not start correctly.", printout.contains(expectedOutput));
     }
 
 

@@ -13,16 +13,16 @@ public class EISHandler {
 
     public EISHandler(){
         items.add(
-            new ItemDTO("Fint rött äpple", 0.25, 10.0, "Svenskt äpple", "1identifer");
-        );
+            new ItemDTO("Nice red apple", 0.25, 10.0, "Svenskt äpple", "1identifier")
+            );
 
         items.add(
-            new ItemDTO("Liten potatis", 0.10, 20.0, "Fin potatis", "2identifer");
-        );
+            new ItemDTO("Liten potatis", 0.10, 20.0, "Fin potatis", "2identifer")
+            );
 
         items.add(
-            new ItemDTO("God gröt", 0.20, 15.0, "Gammelmormors gröt", "3identifer");
-        );
+            new ItemDTO("God gröt", 0.20, 15.0, "Gammelmormors gröt", "3identifer")
+            );
     }
     /**
      * Finds the correct item from the external inventory system based on the items identifier
@@ -42,12 +42,11 @@ public class EISHandler {
         return null;
     }
 
-    
+
     /**
      * This function updates the inventory based on what items were purchased
      * @param sale the completed sale
      */
     public void updateInventory(SaleDTO sale){
-        System.out.println("updateInventory has started successfully");
     }
 }

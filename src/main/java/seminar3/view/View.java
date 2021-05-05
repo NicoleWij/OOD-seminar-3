@@ -23,7 +23,7 @@ public class View {
     public void runFakeExecution(){
         contr.startSale();
         System.out.println("A new sale has been started.");
-        contr.enterItem("Identifier");
+        contr.enterItem("1identifier");
         contr.pay(100, "SEK");
     }
 }

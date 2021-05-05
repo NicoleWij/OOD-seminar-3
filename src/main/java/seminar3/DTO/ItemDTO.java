@@ -8,7 +8,6 @@ public class ItemDTO{
     private double VAT;
     private double price;
     private String name;
-    private int quantity;
     private String identifier;
 
     
@@ -61,14 +60,6 @@ public class ItemDTO{
      */
     public String getName(){
         return this.name;
-    }
-
-    
-    /** 
-     * @return int
-     */
-    public int getQuantity(){
-        return this.quantity;
     }
 
     
