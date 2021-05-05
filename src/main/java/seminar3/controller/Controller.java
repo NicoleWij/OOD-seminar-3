@@ -65,7 +65,7 @@ public class Controller {
 
 
     /**
-     * Handles a payment and also completes the sale and updates external systems.
+     * Handles a payment and also completes the sale, calculates change and updates external systems.
      * @param amount the amount the customer has paid
      * @param currency the currency the customer paid in
      * @return double the amount of change the cashier should give

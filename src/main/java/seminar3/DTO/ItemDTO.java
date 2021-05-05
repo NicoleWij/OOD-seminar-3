@@ -24,6 +24,7 @@ public class ItemDTO{
         this.VAT = VAT;
         this.price = price;
         this.name = name;
+        this.identifier = identifier;
     }
 
     

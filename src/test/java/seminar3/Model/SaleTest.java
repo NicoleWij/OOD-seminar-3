@@ -73,4 +73,31 @@ public class SaleTest {
             0.01
         );
     }
+
+
+    @Test
+    public void testCheckForDuplicate() {
+
+        ItemDTO item = new ItemDTO(null, 0, 0, null, "1234");
+        instance.addItem(item);
+        
+        assertEquals(
+            "The function did not recognize the item as an already scanned item", 
+            true, instance.checkForDuplicate(item.getIdentifier())
+        );
+    }
+
+    @Test
+    public void testAddDuplicate() {
+
+        ItemDTO item = new ItemDTO(null, 0, 0, null, "1234");
+        instance.addItem(item);
+        int quantityBefore = instance.getItems().get(0).getQuantity();
+        instance.duplicateIdentifier(item.getIdentifier());
+        
+        assertEquals(
+            "The function did not recognize the item as an already scanned item", 
+            quantityBefore + 1, instance.getItems().get(0).getQuantity()
+        );
+    }
 }

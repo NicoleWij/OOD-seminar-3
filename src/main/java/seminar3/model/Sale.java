@@ -81,8 +81,8 @@ public class Sale {
     
     /** 
      * This function will check if an item with the same identifier already has been scanned 
-     * @param identifier
-     * @return boolean
+     * @param identifier The identifier of the current item
+     * @return boolean if the identifier has been scanned before or not
      */
     public boolean checkForDuplicate(String identifier){
         for(Item item : items){
@@ -138,5 +138,9 @@ public class Sale {
      */
     public ArrayList<Item> getItems() {
         return this.items;
+    }
+
+
+    public void addDuplicateItem(ItemDTO item) {
     }
 }

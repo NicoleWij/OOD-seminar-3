@@ -19,6 +19,7 @@ public class Item {
         this.VAT = item.getVAT();
         this.price = item.getPrice();
         this.description = item.getDescription();
+        this.identifier = item.getIdentifier();
         this.quantity = 1;
 
         System.out.println("Item started successfully.");
