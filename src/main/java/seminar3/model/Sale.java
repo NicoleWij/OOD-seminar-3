@@ -19,7 +19,6 @@ public class Sale {
      */
     public Sale(){
         timeOfSale = LocalTime.now();
-        System.out.println("Sale started successfully.");
     }
 
 

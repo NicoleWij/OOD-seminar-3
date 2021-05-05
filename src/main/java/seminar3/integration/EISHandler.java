@@ -30,9 +30,6 @@ public class EISHandler {
      * @return
      */
     public ItemDTO findItem(String identifier){
-
-        System.out.println("FindItem has started successfully");
-
         for (ItemDTO item : items){
             if(item.getIdentifier().equals(identifier)) {
                 return item;

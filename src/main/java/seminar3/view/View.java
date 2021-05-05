@@ -22,8 +22,12 @@ public class View {
      */
     public void runFakeExecution(){
         contr.startSale();
-        System.out.println("A new sale has been started.");
+        System.out.println("A new sale has started successfully.");
         contr.enterItem("1identifier");
+        System.out.println("Added an item with the identifier: 1identifier");
         contr.pay(100, "SEK");
+        System.out.println("A payment of 100 SEK was made");
+
+        System.out.println("\n");
     }
 }

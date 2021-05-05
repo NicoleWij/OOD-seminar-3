@@ -32,7 +32,7 @@ public class Controller {
 
         this.register = new Register();
 
-        System.out.println("Controller was started successfully.");
+        System.out.println("Controller was started successfully. \n");
     }
     
 
@@ -41,8 +41,6 @@ public class Controller {
      */
     public void startSale(){
         this.sale = new Sale();
-
-        System.out.println("Sale has started successfully.");
     }
 
 

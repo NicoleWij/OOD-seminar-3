@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import seminar3.DTO.ItemDTO;
 import seminar3.integration.*;
-import seminar3.model.Sale;
 
 public class EISTest {
     private EISHandler instance;
